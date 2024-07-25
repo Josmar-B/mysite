@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<br/><br/>
+<br/><br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Libro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {% for Author in authors %}
+        <tr>
+            <td>{{ Author.name }}</td>
+            <td>
+                <a  class="btn btn-info" href="{% url 'update_author' Author.id %}"role="button">Editar</a>
+               | 
+                <a  class="btn btn-danger" href="{% url 'delete_author' Author.id %}" role="button">Borrar</a>
+        </tr>
+        {% endfor %}
+        <td>        <a  class="btn btn-info"" href="{% url 'create_author' %}" role="button">Añadir</a> </td>
+
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
+
